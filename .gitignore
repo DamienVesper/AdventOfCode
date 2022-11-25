@@ -1,0 +1,9 @@
+# I/O
+input.txt
+output.txt
+
+# NodeJS
+node_modules/
+
+# Java
+*.class
