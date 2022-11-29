@@ -2,10 +2,10 @@ const fs = require(`fs`);
 const path = require(`path`);
 
 const main = async () => {
-    fs.readFile(path.resolve(__dirname, `./input.txt`), (err, data) => {
+    fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
         if (err) throw err;
 
-        const values = data.toString(`utf-8`).split(`\n`);
+        const values = data.split(`\n`);
 
         let gamma = ``;
         let epsilon = ``;

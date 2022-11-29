@@ -2,9 +2,9 @@ const fs = require(`fs`);
 const path = require(`path`);
 
 const getAllPoints = (line) => {
-    const newLine = line.split(` -> `);
-    const [x1, y1] = newLine[0].trim().split(`,`);
-    const [x2, y2] = newLine[1].trim().split(`,`);
+    const newLine = line.split(` -> `).map(x => x.trim());
+    const [x1, y1] = newLine[0].split(`,`);
+    const [x2, y2] = newLine[1].split(`,`);
 
     const a = parseInt(x1) === parseInt(x2);
 
@@ -27,9 +27,9 @@ const main = async () => {
 
         const formattedLines = [];
         for (const line of lines) {
-            const newLine = line.split(` -> `);
-            const [x1, y1] = newLine[0].trim().split(`,`);
-            const [x2, y2] = newLine[1].trim().split(`,`);
+            const newLine = line.split(` -> `).map(x => x.trim());
+            const [x1, y1] = newLine[0].split(`,`);
+            const [x2, y2] = newLine[1].split(`,`);
 
             if (parseInt(x1) === parseInt(x2) || parseInt(y1) === parseInt(y2)) formattedLines.push(line);
         }
