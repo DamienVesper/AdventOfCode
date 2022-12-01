@@ -13,11 +13,11 @@ class Client {
     getInput = () => {
         axios.get(`https://adventofcode.com/${config.year}/day/${config.day}/input`, { headers: { Cookie: `session=${config.sessionSecret}` }}).then(res => {
             if (!fs.existsSync(path.resolve(__dirname, `../staging`))) {
-                const pyStarter = fs.readFileSync(path.resolve(__dirname, `./sample.py`), `utf-8`);
+                const jsStarter = fs.readFileSync(path.resolve(__dirname, `./sample.cjs`), `utf-8`);
 
                 fs.mkdirSync(path.resolve(__dirname, `../staging`));
-                fs.writeFileSync(path.resolve(__dirname, `../staging/P1.py`), pyStarter,  `utf-8`);
-                fs.writeFileSync(path.resolve(__dirname, `../staging/P2.py`), pyStarter,  `utf-8`);
+                fs.writeFileSync(path.resolve(__dirname, `../staging/P1.cjs`), jsStarter,  `utf-8`);
+                fs.writeFileSync(path.resolve(__dirname, `../staging/P2.cjs`), jsStarter,  `utf-8`);
                 fs.writeFileSync(path.resolve(__dirname, `../staging/output.txt`), ``);
             }
 
@@ -47,7 +47,5 @@ class Client {
         });
     };
 }
-
-const client = new Client();
 
 export default Client;
