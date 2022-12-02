@@ -8,6 +8,9 @@ const main = async () => {
         const lines = data.split(`\n`).map(x => x.trim());
         let ans = 0;
 
+        const aS = `ABC`.split(``);
+        const bS = `XYZ`.split(``);
+
         for (const line of lines) {
             const [a, b] = line.split(` `).map(x => x.trim());
 
@@ -15,7 +18,7 @@ const main = async () => {
             const draw = b === `Y`;
 
             let c = ``;
-            if (draw) c = [`X`, `Y`, `Z`][[`A`, `B`, `C`].indexOf(a)];
+            if (draw) c = bS[aS.indexOf(a)];
             else {
                 if (a === `A`) c = won ? `Y` : `Z`
                 else if (a === `B`) c = won ? `Z` : `X`

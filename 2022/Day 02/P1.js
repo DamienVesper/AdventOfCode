@@ -8,6 +8,9 @@ const main = async () => {
         const lines = data.split(`\n`).map(x => x.trim());
         let ans = 0;
 
+        const aS = `ABC`.split(``);
+        const bS = `XYZ`.split(``);
+
         for (const line of lines) {
             const [a, b] = line.split(` `).map(x => x.trim());
 
@@ -16,7 +19,7 @@ const main = async () => {
             (a === `A` && b === `Y`) ||
             (a === `B` && b === `Z`);
 
-            const draw = `ABC`.split(``).indexOf(a) === `XYZ`.split(``).indexOf(b);
+            const draw = aS.indexOf(a) === bS.indexOf(b);
 
             if (won) ans += 6;
             else if (draw) ans += 3;
