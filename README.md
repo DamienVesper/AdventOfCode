@@ -9,8 +9,6 @@
     <img src="https://img.shields.io/badge/python-%23FFD343?style=for-the-badge&logo=python&logoColor=black" />
     <img src="https://img.shields.io/badge/ruby-%23CC342D?style=for-the-badge&logo=ruby&logoColor=white" />
 </div>
-
-<img src="" align="center" />
 <hr />
 
 ## About
