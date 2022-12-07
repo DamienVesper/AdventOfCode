@@ -67,12 +67,10 @@ const main = async () => {
             }
         }
 
-        // const ans = Object.values(tree).filter(x => x <= 1e5).reduce((a, b) => a + b);
-
         const remainder = 7e7 - tree[`/`];
-
         let ans = 7e7;
-        for (const dir of Object.values(tree).sort((a, b) => a - b)) {
+
+        for (const dir of Object.values(tree).sort()) {
             if ((remainder + dir) >= 3e7) ans = Math.min(ans, dir);
         }
 
