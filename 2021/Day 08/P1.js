@@ -6,7 +6,6 @@ const main = async () => {
         if (err) throw err;
 
         const lines = data.split(`\n`).map(x => x.trim());
-
         let ans = 0;
 
         for (const line of lines) {
