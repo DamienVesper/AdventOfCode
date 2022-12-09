@@ -43,17 +43,7 @@ const main = async () => {
 
         const lines = data.split(`\n`);
         
-        for (const line of lines) {
-            if (line.startsWith(`$`)) parseCommand(line.slice(2));
-            else {
-                const [size, name] = line.split(/\s/g);
-                if (size === `dir`) {
-                    const fName = path.join(curPath, name).replace(/\\/g, `/`);
-                    if (tree[fName] === undefined) tree[fName] = 0;
-                }
-            }
-        }
-
+        for (const line of lines) if (line.startsWith(`$`)) parseCommand(line.slice(2));
         for (const line of lines) {
             if (line.startsWith(`$`)) parseCommand(line.slice(2));
             else {
