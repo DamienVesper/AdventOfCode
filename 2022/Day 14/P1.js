@@ -65,8 +65,6 @@ fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
         }
     }
 
-
-
     const startCoord = [500 - xBounds[0], 0];
     grid[startCoord[1]][startCoord[0]] = `+`;
 
