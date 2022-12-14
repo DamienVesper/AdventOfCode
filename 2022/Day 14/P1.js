@@ -7,7 +7,7 @@ fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
     const lines = data.split(`\n`).map(x => x.trim()).map(x => x.split(` -> `).map(x => x.split(`,`).map(x => parseInt(x))));
 
     let xBounds = [null, null];
-    let yBounds = [9, null];
+    let yBounds = [-1, null];
 
     for (const line of lines) {
         const x = [null, null];
@@ -25,7 +25,7 @@ fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
         }
 
         if (xBounds[0] === null) xBounds = [x[0], x[1]];
-        if (yBounds[1] === null) yBounds = [0, y[1]];
+        if (yBounds[1] === null) yBounds[1] = y[1];
 
         xBounds[0] = Math.min(xBounds[0], x[0]);
         xBounds[1] = Math.max(xBounds[1], x[1]);
@@ -34,8 +34,6 @@ fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
 
     xBounds[0]--;
     xBounds[1]++;
-
-    yBounds[0]--;
 
     const grid = new Array(yBounds[1] - yBounds[0]);
     for (let i = 0; i < yBounds[1] - yBounds[0]; i++) {

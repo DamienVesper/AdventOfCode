@@ -45,5 +45,7 @@ fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
     monkeys.sort((a, b) => b.monkeyBusiness - a.monkeyBusiness);
 
     const ans = monkeys[0].monkeyBusiness * monkeys[1].monkeyBusiness;
+
     console.log(`Result: ${ans}`);
+    fs.writeFileSync(path.resolve(__dirname, `./output.txt`), String(ans));
 });
