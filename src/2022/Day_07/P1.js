@@ -1,5 +1,9 @@
-const fs = require(`fs`);
-const path = require(`path`);
+import * as path from 'path';
+import * as fs from 'fs';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const data = fs.readFileSync(path.resolve(__dirname, `./input.txt`), `utf-8`);
 
 const expand = path => {
     if (path === `/`) return [`/`];
@@ -9,10 +13,10 @@ const expand = path => {
 
     for (let i = 1; i < parts.length; i++) expanded.push(`${parts.slice(0, i + 1).join(`/`)}`);
     return expanded;
-}
+};
 
 const main = async () => {
-    let tree = {};
+    const tree = {};
     let curPath = `/`;
 
     const parseCommand = line => {
@@ -38,30 +42,30 @@ const main = async () => {
         }
     };
 
-    fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
-        if (err) throw err;
+    const lines = data.split(`\n`);
 
-        const lines = data.split(`\n`);
-        
-        for (const line of lines) if (line.startsWith(`$`)) parseCommand(line.slice(2));
-        for (const line of lines) {
-            if (line.startsWith(`$`)) parseCommand(line.slice(2));
-            else {
-                const rSize = line.split(/\s/g)[0];
-                if (rSize !== `dir`) {
-                    const size = parseInt(rSize); 
-                    const dirs = expand(curPath);
+    for (const line of lines) if (line.startsWith(`$`)) parseCommand(line.slice(2));
+    for (const line of lines) {
+        if (line.startsWith(`$`)) parseCommand(line.slice(2));
+        else {
+            const rSize = line.split(/\s/g)[0];
+            if (rSize !== `dir`) {
+                const size = parseInt(rSize);
+                const dirs = expand(curPath);
 
-                    for (const dir of dirs) tree[dir] += size;
-                }
+                for (const dir of dirs) tree[dir] += size;
             }
         }
+    }
 
-        const ans = Object.values(tree).filter(x => x <= 1e5).reduce((a, b) => a + b);
+    const ans = Object.values(tree).filter(x => x <= 1e5).reduce((a, b) => a + b);
+    fs.writeFileSync(path.resolve(__dirname, `./output.txt`), String(ans));
 
-        console.log(`Result: ${ans}`);
-        fs.writeFileSync(path.resolve(__dirname, `./output.txt`), String(ans));
-    });
+    if (process.argv.length <= 3) console.log(`Result: ${ans}`);
+    return ans;
 };
+
+if (process.argv.length <= 3) void main();
+export default main;
 
 void main();

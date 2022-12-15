@@ -1,3 +1,4 @@
+
 /**
  * Create a grid of dimensions X:Y.
  * @param {number} x The number of rows.
@@ -5,7 +6,7 @@
  * @param {number} a The data to fill the grid with.
  * @returns The grid.
  */
-const createGrid = (x, y) => {
+const createGrid = (x, y, a) => {
     const grid = new Array(y);
     for (let i = 0; i < grid.length; i++) {
         grid[i] = [];
@@ -19,4 +20,4 @@ const createGrid = (x, y) => {
 
 export {
     createGrid
-}
+};

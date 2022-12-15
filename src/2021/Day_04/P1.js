@@ -1,3 +1,4 @@
+/* eslint-disable no-array-constructor */
 const path = require(`path`);
 const fs = require(`fs`);
 
@@ -48,7 +49,7 @@ class Board {
                 if (this.data[i][j] === num) return [i, j];
             }
         }
-    }
+    };
 
     apply = (num) => {
         if (this.unpicked.includes(num)) this.unpicked = this.unpicked.filter(x => x !== num);
@@ -69,7 +70,6 @@ class Board {
             new Array(5).fill(0),
             new Array(5).fill(0)
         ];
-
 
         for (const calledNum of this.called) {
             const pos = this.lookup(calledNum);
@@ -116,7 +116,7 @@ const main = async () => {
                 tempBoard = [];
             } else tempBoard.push(line.split(/\s+/).map(x => parseInt(x)));
         }
-        
+
         for (const num of calledNums) {
             const call = bingo.callNum(num);
             if (call) break;

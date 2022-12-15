@@ -13,7 +13,7 @@ const main = async () => {
 
             let duplicates = false;
 
-            let seen = [];
+            const seen = [];
             for (const part of parts) {
                 if (seen.includes(part)) {
                     duplicates = true;

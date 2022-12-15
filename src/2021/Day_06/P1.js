@@ -14,14 +14,14 @@ class Lanternfish {
             this.timer = 6;
             this.children.push(new Lanternfish(8));
         } else this.timer--;
-    }
+    };
 
     calculateTotal = () => {
         let total = 1;
         if (this.children.length > 0) for (const child of this.children) total += child.calculateTotal();
-        
+
         return total;
-    }
+    };
 }
 
 const main = async () => {

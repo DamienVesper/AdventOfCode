@@ -10,16 +10,16 @@ const getAllPoints = (line) => {
         ? 0
         : parseInt(y1) === parseInt(y2)
             ? 1
-            : 2
+            : 2;
 
     const points = [];
 
     const dispX = parseInt(x2 - x1);
-    const dispY = parseInt(y2 - y1)
+    const dispY = parseInt(y2 - y1);
 
     const displacement = (a === 0 || a === 2) ? dispY : dispX;
     const steps = Math.abs(displacement);
-    
+
     for (let i = 0; i <= steps; i++) points.push(`${parseInt(x1) + (a === 1 || a === 2 ? (i * (dispX > 0 ? 1 : -1)) : 0)}:${parseInt(y1) + (a === 0 || a === 2 ? (i * (dispY > 0 ? 1 : -1)) : 0)}`);
     return points;
 };

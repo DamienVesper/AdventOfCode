@@ -14,7 +14,7 @@ const getAllPoints = (line) => {
         : parseInt(x2) - parseInt(x1);
 
     const steps = Math.abs(displacement);
-    
+
     for (let i = 0; i <= steps; i++) points.push(`${parseInt(x1) + (a ? 0 : (i * (displacement > 0 ? 1 : -1)))}:${parseInt(y1) + (a ? (i * (displacement > 0 ? 1 : -1)) : 0)}`);
     return points;
 };

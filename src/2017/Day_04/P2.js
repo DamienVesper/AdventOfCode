@@ -14,10 +14,10 @@ const main = async () => {
 
             let duplicates = false;
 
-            let seen = [];
-            let alphabetized = [];
+            const seen = [];
+            const alphabetized = [];
             for (const part of parts) {
-                const alphaPart = part.split("").sort().join("");
+                const alphaPart = part.split(``).sort().join(``);
                 if (seen.includes(part)) {
                     duplicates = true;
                     break;

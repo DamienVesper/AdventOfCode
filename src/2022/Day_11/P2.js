@@ -1,10 +1,12 @@
-const fs = require(`fs`);
-const path = require(`path`);
+import * as path from 'path';
+import * as fs from 'fs';
+import { fileURLToPath } from 'url';
 
-fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
-    if (err) throw err;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const data = fs.readFileSync(path.resolve(__dirname, `./input.txt`), `utf-8`);
 
-    const monkeys = data.split(`\n\r`).map(x => x.trim()).map(x => {
+const main = async () => {
+    const monkeys = data.split(`\n\n`).map(x => x.trim()).map(x => {
         const data = x.split(`\n`).map(x => x.trim());
 
         const items = data[1].slice(16).split(`, `).map(x => parseInt(x));
@@ -14,8 +16,7 @@ fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
         const doIfTrue = parseInt(data[4].slice(25));
         const doIfFalse = parseInt(data[5].slice(26));
 
-        let monkeyBusiness = 0;
-        return { items, operation, test, doIfTrue, doIfFalse, monkeyBusiness };
+        return { items, operation, test, doIfTrue, doIfFalse, monkeyBusiness: 0 };
     });
 
     let lcm = 1;
@@ -29,7 +30,7 @@ fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
             const items = [...monkey.items];
             for (const item of items) {
                 monkey.items.shift();
-    
+
                 const operation = String(monkey.operation);
                 const res = eval(operation.replace(/old/g, item)) % lcm;
 
@@ -45,7 +46,11 @@ fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
     monkeys.sort((a, b) => b.monkeyBusiness - a.monkeyBusiness);
 
     const ans = monkeys[0].monkeyBusiness * monkeys[1].monkeyBusiness;
-
-    console.log(`Result: ${ans}`);
     fs.writeFileSync(path.resolve(__dirname, `./output.txt`), String(ans));
-});
+
+    if (process.argv.length <= 3) console.log(`Result: ${ans}`);
+    return ans;
+};
+
+if (process.argv.length <= 3) void main();
+export default main;

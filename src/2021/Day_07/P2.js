@@ -11,7 +11,7 @@ const calcFuel = steps => {
 const main = async () => {
     fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
         if (err) throw err;
-        
+
         const crabs = data.split(`,`).map(c => Number(c));
         let ans = 0;
 

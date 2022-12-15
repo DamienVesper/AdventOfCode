@@ -14,7 +14,7 @@ const main = async () => {
         for (let i = 0; i < values[0].length; i++) nums.push([]);
 
         for (const number of values) {
-            for (let i = 0; i < number.length ; i++) {
+            for (let i = 0; i < number.length; i++) {
                 const num = parseInt(number[i]);
                 if (!isNaN(num)) nums[i].push(num);
             }

@@ -1,13 +1,15 @@
-const fs = require(`fs`);
-const path = require(`path`);
+import * as path from 'path';
+import * as fs from 'fs';
+import { fileURLToPath } from 'url';
 
-fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
-    if (err) throw err;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const data = fs.readFileSync(path.resolve(__dirname, `./input.txt`), `utf-8`);
 
+const main = async () => {
     const lines = data.split(`\n`).map(x => x.trim()).map(x => x.split(` -> `).map(x => x.split(`,`).map(x => parseInt(x))));
 
     let xBounds = [null, null];
-    let yBounds = [-1, null];
+    const yBounds = [-1, null];
 
     for (const line of lines) {
         const x = [null, null];
@@ -56,7 +58,7 @@ fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
                 for (let k = x1; k <= x2; k++) {
                     const y = j - (yBounds[0] + 1);
                     const x = k - xBounds[0];
-    
+
                     grid[y][x] = `#`;
                 }
             }
@@ -81,7 +83,7 @@ fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
                 break;
             }
 
-            const bottom = grid[sandPos[1] + 1][sandPos[0]]
+            const bottom = grid[sandPos[1] + 1][sandPos[0]];
             const bottomLeft = grid[sandPos[1] + 1][sandPos[0] - 1];
             const bottomRight = grid[sandPos[1] + 1][sandPos[0] + 1];
 
@@ -106,5 +108,9 @@ fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
     const output = grid.map(x => x.join(``)).join(`\n`);
     fs.writeFileSync(path.resolve(__dirname, `./output.txt`), String(output));
 
-    console.log(`Result: ${ans}`);
-});
+    if (process.argv.length <= 3) console.log(`Result: ${ans}`);
+    return ans;
+};
+
+if (process.argv.length <= 3) void main();
+export default main;

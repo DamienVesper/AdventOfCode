@@ -10,7 +10,7 @@ const main = async () => {
 
         const fData = [];
         for (let i = 0; i < lines.length; i += 3) {
-            for(let j = 0; j < 3; j++) {
+            for (let j = 0; j < 3; j++) {
                 fData.push([
                     lines[i][j],
                     lines[i + 1][j],

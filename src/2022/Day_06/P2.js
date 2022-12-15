@@ -1,37 +1,40 @@
-const fs = require(`fs`);
-const path = require(`path`);
+import * as path from 'path';
+import * as fs from 'fs';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const data = fs.readFileSync(path.resolve(__dirname, `./input.txt`), `utf-8`);
 
 const main = async () => {
-    fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
-        if (err) throw err;
+    let ans = 0;
+    const store = data.slice(0, 14).split(``);
 
-        let ans = 0;
-        let store = data.slice(0, 14).split(``);
+    for (let i = 14; i < data.length; i++) {
+        const newStore = [];
+        let pass = true;
 
-        for (let i = 14; i < data.length; i++) {
-            const newStore = [];
-            let pass = true;
-
-            for (const item of store) {
-                if (newStore.includes(item)) {
-                    pass = false;
-                    break;
-                }
-                newStore.push(item);
-            }
-
-            if (pass) {
-                ans = i;
+        for (const item of store) {
+            if (newStore.includes(item)) {
+                pass = false;
                 break;
-            } else {
-                store.shift();
-                store.push(data[i])
             }
+            newStore.push(item);
         }
 
-        console.log(`Result: ${ans}`);
-        fs.writeFileSync(path.resolve(__dirname, `./output.txt`), String(ans));
-    });
+        if (pass) {
+            ans = i;
+            break;
+        } else {
+            store.shift();
+            store.push(data[i]);
+        }
+    }
+
+    fs.writeFileSync(path.resolve(__dirname, `./output.txt`), String(ans));
+
+    if (process.argv.length <= 3) console.log(`Result: ${ans}`);
+    return ans;
 };
 
-void main();
+if (process.argv.length <= 3) void main();
+export default main;

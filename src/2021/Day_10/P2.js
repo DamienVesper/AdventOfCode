@@ -6,14 +6,14 @@ const pts = {
     [`]`]: 2,
     [`}`]: 3,
     [`>`]: 4
-}
+};
 
 const pairs = {
     [`(`]: `)`,
     [`[`]: `]`,
     [`{`]: `}`,
     [`<`]: `>`
-}
+};
 
 const openings = Object.keys(pairs);
 
@@ -21,7 +21,6 @@ const main = async () => {
     fs.readFile(path.resolve(__dirname, `./input.txt`), `utf-8`, (err, data) => {
         if (err) throw err;
 
-        
         const lines = data.split(`\n`).map(x => x.trim());
         const totals = [];
 
