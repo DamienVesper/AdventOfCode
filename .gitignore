@@ -1,12 +1,10 @@
-# Environment variables
-.env
-
-# temp stuff
-.utils/
-
 # I/O
 input.txt
+sample.txt
 output.txt
+
+# Environment variables
+.env
 
 # NodeJS
 node_modules/
