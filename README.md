@@ -12,15 +12,24 @@
 <hr />
 
 ## About
-This repository contains solutions for Advent of Code. Feel free to use these solutions to grasp a better idea of how to solve these types of questions.
+This repository contains solutions for Advent of Code. Feel free to compare these against your own implementations.
 
 ## Prerequisites
  * [Node.js](https://nodejs.org)
  * [Python](https://python.org)
  * [Ruby](https://www.ruby-lang.org)
 
+## Setup
+To set up a development environment, copy the contents of `.env.example` to `.env` in the root of the project. It should look as follows:
+```env
+SESSION_SECRET="YOUR_AOC_SESSION_KEY"
+```
+
 ## Development
-To run a program, navigate to its directory, create a file `input.txt` and populate it with your puzzle input. Then run the respective program in the terminal.
+To get your input for a solution, run `node aoc.js input <day>` in the root of the project.
+To run the solutions for a day using your input, run `node aoc.js run <day>`.
+
+To run solutions of other languages, navigate to the directory of the solution itself, and run it in the terminal using the respective command-line invokation.
 For example, if you wanted to run the solution to the first part of a day's solution:
 ```sh
 node P1.js # JavaScript
@@ -28,4 +37,4 @@ py P1.py # Python
 ruby P1.rb # Ruby
 ```
 
-**NOTE:** Double carriage returns on Windows can appear as either `\n\n` or `\n\r`. Please adjust the solution accordingly if you are running into a related error.
+**NOTE:** Double carriage returns on Windows can appear as either `\n\n` or `\n\r` (depending on whether you used the tool to generate your input or if the input was copied manually). Please adjust the solution accordingly if you are running into a related error.
