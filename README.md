@@ -26,7 +26,7 @@ SESSION_SECRET="YOUR_AOC_SESSION_KEY"
 ```
 
 ## Development
-To get your input for a solution, run `node aoc.js input <day>` in the root of the project.
+To get your input for a solution, run `node aoc.js input <day>` in the root of the project (only supported by AoC 2022 solutions).
 To run the solutions for a day using your input, run `node aoc.js run <day>`.
 
 To run solutions of other languages, navigate to the directory of the solution itself, and run it in the terminal using the respective command-line invokation.
