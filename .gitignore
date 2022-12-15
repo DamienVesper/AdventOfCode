@@ -1,3 +1,9 @@
+# Environment variables
+.env
+
+# temp stuff
+.utils/
+
 # I/O
 input.txt
 output.txt
@@ -11,4 +17,3 @@ node_modules/
 # Rust
 *.exe
 *.pdb
-
