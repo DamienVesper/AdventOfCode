@@ -37,4 +37,4 @@ py P1.py # Python
 ruby P1.rb # Ruby
 ```
 
-**NOTE:** Double carriage returns on Windows can appear as either `\n\n` or `\n\r` (depending on whether you used the tool to generate your input or if the input was copied manually). Please adjust the solution accordingly if you are running into a related error.
+**NOTE:** Carriage returns on Windows are by default in CRLF. You must convert your input files to LF before running solutions.
