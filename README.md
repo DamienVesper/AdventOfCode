@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://www.smarty.com/img/advent-of-code-2022.png" alt="Advent Of Code 2022 banner">
+    <img src="https://www.smarty.com/img/1600-900-Advent-of-Code-2023.png" alt="Advent Of Code 2023 banner">
     <hr />
 </div>
 
