@@ -7,7 +7,7 @@ dotenv.config();
 
 interface Args {
     mode: `init` | `input` | `run` | `output`
-    
+
 }
 
 const date = new Date(new Date().valueOf() + 36e5);
