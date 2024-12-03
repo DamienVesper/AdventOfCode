@@ -1,12 +1,11 @@
-
 /**
  * Create a grid of dimensions X:Y.
- * @param {number} x The number of rows.
- * @param {number} y The number of columns.
- * @param {number} a The data to fill the grid with.
+ * @param x The number of rows.
+ * @param y The number of columns.
+ * @param a The data to fill the grid with.
  * @returns The grid.
  */
-const createGrid = (x, y, a) => {
+const createGrid = (x: number, y: number, a: number): number[] => {
     const grid = new Array(y);
     for (let i = 0; i < grid.length; i++) {
         grid[i] = [];

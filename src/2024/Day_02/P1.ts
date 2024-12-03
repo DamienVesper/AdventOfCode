@@ -23,12 +23,10 @@ const main = async () => {
                 if (prev < f) {
                     isIncreasing === undefined ? isIncreasing = true : void 0;
                     isSafe = isSafe && isIncreasing && !isDecreasing;
-                }
-                else if (prev > f) {
+                } else if (prev > f) {
                     isDecreasing === undefined ? isDecreasing = true : void 0;
                     isSafe = isSafe && isDecreasing && !isIncreasing;
-                }
-                else isSafe = false;
+                } else isSafe = false;
 
                 isSafe = isSafe && Math.abs(f - prev) <= 3 && Math.abs(f - prev) >= 1;
             }

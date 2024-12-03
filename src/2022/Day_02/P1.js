@@ -15,10 +15,10 @@ const main = async () => {
     for (const line of lines) {
         const [a, b] = line.split(` `).map(x => x.trim());
 
-        const won =
-        (a === `C` && b === `X`) ||
-        (a === `A` && b === `Y`) ||
-        (a === `B` && b === `Z`);
+        const won
+        = (a === `C` && b === `X`)
+        || (a === `A` && b === `Y`)
+        || (a === `B` && b === `Z`);
 
         const draw = aS.indexOf(a) === bS.indexOf(b);
 

@@ -13,10 +13,10 @@ const main = async () => {
 
             for (const item of output) {
                 if (
-                    (item.length === 2) ||
-                    (item.length === 3) ||
-                    (item.length === 4) ||
-                    (item.length === 7)
+                    (item.length === 2)
+                    || (item.length === 3)
+                    || (item.length === 4)
+                    || (item.length === 7)
                 ) ans++;
             }
         }

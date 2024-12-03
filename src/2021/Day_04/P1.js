@@ -10,7 +10,7 @@ class Bingo {
         this.winners = [];
     }
 
-    callNum = (num) => {
+    callNum = num => {
         this.called.push(num);
         for (const board of [...this.boards.values()]) {
             board.apply(num);
@@ -37,21 +37,20 @@ class Board {
         this.bingo = false;
 
         this.called = [];
-        this.unpicked = new Array().concat(...this.data);
+        this.unpicked = [].concat(...this.data);
     }
 
-    lookup = (num) => {
-        const nums = new Array().concat(...this.data);
+    lookup = num => {
+        const nums = [].concat(...this.data);
         if (!nums.includes(num)) return undefined;
 
         for (let i = 0; i < 5; i++) {
-            for (let j = 0; j < 5; j++) {
+            for (let j = 0; j < 5; j++)
                 if (this.data[i][j] === num) return [i, j];
-            }
         }
     };
 
-    apply = (num) => {
+    apply = num => {
         if (this.unpicked.includes(num)) this.unpicked = this.unpicked.filter(x => x !== num);
         this.called.push(num);
 

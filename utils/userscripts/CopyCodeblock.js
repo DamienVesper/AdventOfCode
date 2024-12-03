@@ -14,11 +14,11 @@ style.innerHTML = `code:copied:before { background: #30304f; }`;
 document.head.appendChild(style);
 
 Array.from(document.querySelectorAll(`code`)).forEach(element => {
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     element.addEventListener(`click`, async () => {
-        if (window.getSelection().type === `Range`) return;
+        if (window.getSelection()?.type === `Range`) return;
 
-        await navigator.clipboard.writeText(element.textContent);
-
+        await navigator.clipboard.writeText(element?.textContent ?? ``);
         element.classList.add(`copied`);
 
         await new Promise(resolve => setTimeout(resolve, 500));

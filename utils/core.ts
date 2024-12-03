@@ -1,4 +1,4 @@
-import AdventClient from './AdventClient.js';
+import AdventClient from './AdventClient';
 
 const core = {
     aoc: new AdventClient()

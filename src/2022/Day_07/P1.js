@@ -34,7 +34,7 @@ const main = async () => {
                 curPath = parts.join(`/`);
                 if (curPath === ``) curPath = `/`;
             } else {
-                if (curPath[curPath.length - 1] === `/`) curPath += path;
+                if (curPath.endsWith(`/`)) curPath += path;
                 else curPath += `/${path}`;
             }
 

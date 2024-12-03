@@ -1,7 +1,7 @@
 const fs = require(`fs`);
 const path = require(`path`);
 
-const getAllPoints = (line) => {
+const getAllPoints = line => {
     const newLine = line.split(` -> `).map(x => x.trim());
     const [x1, y1] = newLine[0].split(`,`);
     const [x2, y2] = newLine[1].split(`,`);

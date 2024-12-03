@@ -23,6 +23,7 @@
     "@stylistic/eslint-plugin": "^2.11.0",
     "@types/bun": "^1.1.14",
     "@types/node": "^18.19.67",
+    "@types/qs": "^6.9.17",
     "@types/yargs": "^17.0.33",
     "eslint": "^8.57.1",
     "globals": "^15.12.0",

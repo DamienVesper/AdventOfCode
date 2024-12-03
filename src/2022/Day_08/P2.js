@@ -15,9 +15,8 @@ const main = async () => {
 
     const scores = {};
     for (let i = 0; i < lines.length; i++) {
-        for (let j = 0; j < lines.length; j++) {
+        for (let j = 0; j < lines.length; j++)
             scores[`${i}:${j}`] = 1;
-        }
     }
 
     for (let i = 0; i < xMap.length; i++) {
@@ -70,9 +69,8 @@ const main = async () => {
 
     let ans = 0;
     for (let i = 0; i < Math.sqrt(Object.keys(scores).length); i++) {
-        for (let j = 0; j < Math.sqrt(Object.keys(scores).length); j++) {
+        for (let j = 0; j < Math.sqrt(Object.keys(scores).length); j++)
             ans = Math.max(ans, scores[`${i}:${j}`]);
-        }
     }
 
     fs.writeFileSync(path.resolve(__dirname, `./output.txt`), String(ans));

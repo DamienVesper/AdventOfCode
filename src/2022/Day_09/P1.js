@@ -9,7 +9,7 @@ const rope = [];
 const tailCount = 1;
 for (let i = 0; i <= tailCount; i++) rope.push({ x: 0, y: 0 });
 
-const moveHead = (direction) => {
+const moveHead = direction => {
     switch (direction) {
         case `U`:
             rope[0].y++;
@@ -36,8 +36,8 @@ const moveTail = () => {
     const deltaY = head.y - tail.y;
 
     if (
-        (Math.abs(deltaX) === 1) &&
-        (Math.abs(deltaY) === 1)
+        (Math.abs(deltaX) === 1)
+        && (Math.abs(deltaY) === 1)
     ) return;
 
     if (deltaX === -2 && deltaY === 0) tail.x--;

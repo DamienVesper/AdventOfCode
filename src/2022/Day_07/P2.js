@@ -34,7 +34,7 @@ const main = async () => {
                 curPath = parts.join(`/`);
                 if (curPath === ``) curPath = `/`;
             } else {
-                if (curPath[curPath.length - 1] === `/`) curPath += path;
+                if (curPath.endsWith(`/`)) curPath += path;
                 else curPath += `/${path}`;
             }
 
@@ -61,9 +61,8 @@ const main = async () => {
     const remainder = 7e7 - tree[`/`];
     let ans = 7e7;
 
-    for (const dir of Object.values(tree).sort()) {
+    for (const dir of Object.values(tree).sort())
         if ((remainder + dir) >= 3e7) ans = Math.min(ans, dir);
-    }
 
     fs.writeFileSync(path.resolve(__dirname, `./output.txt`), String(ans));
 

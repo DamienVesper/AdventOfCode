@@ -1,0 +1,14 @@
+{
+    "extends": "./tsconfig.json",
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.js",
+        "eslint.config.js",
+        "utils/**/*.js",
+        "utils/**/*.ts",
+        "aoc.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

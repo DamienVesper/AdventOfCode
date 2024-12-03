@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const data = fs.readFileSync(path.resolve(__dirname, `./input.txt`), `utf-8`);
 
-const expand = (range) => {
+const expand = range => {
     const coords = [];
 
     const [x1, x2] = range.split(`-`).map(x => parseInt(x));
