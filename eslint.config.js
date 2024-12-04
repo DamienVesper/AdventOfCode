@@ -49,16 +49,7 @@ export default tseslint.config(
             // @typescript-eslint
             [`@typescript-eslint/array-type`]: [`warn`, { default: `array-simple` }],
             [`@typescript-eslint/consistent-type-definitions`]: `off`,
-            [`@typescript-eslint/explicit-function-return-type`]: [`warn`, {
-                allowExpressions: true,
-                allowTypedFunctionExpressions: true,
-                allowHigherOrderFunctions: true,
-                allowDirectConstAssertionInArrowFunctions: true,
-                allowConciseArrowFunctionExpressionsStartingWithVoid: false,
-                allowFunctionsWithoutTypeParameters: false,
-                allowedNames: [],
-                allowIIFEs: false
-            }],
+            [`@typescript-eslint/explicit-function-return-type`]: `off`,
             [`@typescript-eslint/no-confusing-void-expression`]: `off`,
             [`@typescript-eslint/no-this-alias`]: `off`,
             [`@typescript-eslint/no-unused-vars`]: [`warn`, {
@@ -88,7 +79,10 @@ export default tseslint.config(
             [`@typescript-eslint/no-unsafe-member-access`]: `off`,
             [`@typescript-eslint/no-unsafe-return`]: `off`,
             [`@typescript-eslint/no-redundant-type-constituents`]: `off`,
-            [`@typescript-eslint/no-unnecessary-type-parameters`]: `off`
+            [`@typescript-eslint/no-unnecessary-type-parameters`]: `off`,
+            [`@typescript-eslint/prefer-for-of`]: `off`,
+            [`@typescript-eslint/no-unused-expressions`]: `off`,
+            [`@typescript-eslint/no-explicit-any`]: `off`
         }
     },
     {

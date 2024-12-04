@@ -23,7 +23,6 @@
     },
     "include": [
         "src/**/*.ts",
-        "src/**/*.js",
         "utils/**/*.js",
         "utils/**/*.ts",
         "aoc.ts"
